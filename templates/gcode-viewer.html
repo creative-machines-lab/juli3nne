@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+{% block content %}
+    <script type="text/javascript" src="{{ url_for('static', filename = 'gcode-viewer.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename = 'show_gcode.js') }}"></script>
+    <script>
+        const gcode = `{{ gcode }}`;
+    </script>
+    <div class="row">
+        <div class="col-12 centered bottom-20">
+            <div class="btn btn-primary" id="gcode-download-btn">Download GCode</div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 centered bottom-20" id="gcode-inlet">
+            <div id="gcode-viewer"></div>
+        </div>
+    </div>
+
+{% endblock %}

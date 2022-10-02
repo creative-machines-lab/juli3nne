@@ -1,0 +1,8 @@
+./gcode_unclean/1.gcode
+./gcode_clean/1.gcode
+2
+1
+3
+3
+3
+0

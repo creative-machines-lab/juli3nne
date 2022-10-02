@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+{% block content %}
+    <script>
+        const files = {{ files|tojson }};
+    </script>
+    <script type="text/javascript" src="{{ url_for('static', filename = 'show_stl.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename = 'stl_viewer.min.js') }}"></script>
+    <div class="row">
+        <div class="col-12 centered bottom-20">
+            <div class="btn btn-primary" id="gcode-button">Generate GCode</div>
+        </div>
+    </div>
+    <div class="row" id="canvas-row"></div>
+{% endblock %}

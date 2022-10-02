@@ -1,0 +1,61 @@
+{% extends "layout.html" %}
+{% block content %}
+    <form method="POST" enctype="multipart/form-data" action="/upload">
+
+        <div class="input-group">
+            <div class="custom-file">
+                <input type="file" class="custom-file-input" id="file-input" name="file[]" multiple="">
+                <label class="custom-file-label" for="file-input">Choose file</label>
+            </div>
+            <div class="input-group-append">
+                <button class="btn btn-primary" id="upload" type="submit" disabled>Upload</button>
+            </div>
+        </div>
+
+        <div class="instructions">
+        <span class="inst-main">1. Rename all the STL files in the format &ltX.STL&gt where X is the numerical order
+            (starting from 1) in which you want the layer to be printed.
+        </span>
+
+            <!----------------------------------------------------------------------------------------------->
+
+            <span class="inst-main">2. Create a file called &ltconfig.txt&gt</span>
+            <div class="spacer-5"></div>
+            <span class="inst-sub">- For every STL file, create a row in &ltconfig.txt&gt to specify the
+            corresponding tool index, extrusion multiplier, and tool's initial extrusion offset in the
+            following format:
+        </span>
+            <span class="inst-sub">
+            &ltSTL file name&gt,&ltTool Index&gt,&ltExtrusion Multiplier&gt,&ltInitial Extrusion Offset&gt
+        </span>
+            <span class="inst-sub">Example:<span class="inst-space"></span>2.STL,3,0.0195,8</span>
+            <div class="spacer-10"></div><div class="spacer-5"></div>
+            <span class="inst-sub">- At the end of the file, add a row to specify the printer bed's Z-offset
+            (in millimeters) in the following format:
+        </span>
+            <span class="inst-sub">offset=&ltZ value&gt</span>
+            <span class="inst-sub">Example:<span class="inst-space"></span>offset=2.35</span>
+
+            <!----------------------------------------------------------------------------------------------->
+
+            <span class="inst-main">
+            3. Click on the 'Browse' button to select all the STL files along with the config file,
+            and then click the 'Upload' button.
+        </span>
+            <div class="spacer-20"></div>
+            <button class="btn btn-primary" id="sample-button" type="button">Download Sample Files</button>
+        </div>
+    </form>
+    <script>
+        $('#file-input').on('change',function(){
+            let filename = $(this).val();
+            if(filename !== '') {
+                $("#upload").attr('disabled', false);
+            }
+            $(this).next('.custom-file-label').html('Multiple files selected');
+        })
+        $('#sample-button').click(function() {
+            window.location.href = "/download-sample";
+        });
+    </script>
+{% endblock %}

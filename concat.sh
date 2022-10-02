@@ -1,0 +1,1 @@
+cat > gcode_clean/combined.gcode
