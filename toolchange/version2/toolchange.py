@@ -71,11 +71,3 @@ for x in range(toolchange):
 	ran = random.randint(1,18)
 
 f.close()
-
-
-
-
-
-
-
-
