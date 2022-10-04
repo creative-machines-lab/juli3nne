@@ -4,6 +4,8 @@ mkdir gcode_clean gcode_unclean
 
 # wget "https://docs.google.com/spreadsheets/d/1mdmZlsQ2iFxAYt3wSUQabdSp760PFqEHBcyFQq9FNMA/export?format=csv&gid=<sheet_id>" -O "toolchange/gcode_script/ToolPostCoords.csv"
 
+python3 toolchange/gcode_script/generate_toolchange.py 
+
 sh slic3r_script.sh
 
 python3 prefix.py
