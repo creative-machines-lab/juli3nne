@@ -53,9 +53,15 @@ for(x in 1 : length(listcfgs)) {
     maxy = 0
     minx = 100000
     miny = 100000
+    init_layer = 1
+
+    newStr = paste(newStr, pickGCode,sep="\n")
 
     for (x in 1: length(data)) {
-        a = toupper(substr(data[x],1,1))
+
+	    
+	a = toupper(substr(data[x],1,1))
+
 
         if (a==";" || a == "M")
             next
@@ -64,7 +70,7 @@ for(x in 1 : length(listcfgs)) {
         if (grepl("home X axis",data[x]))
             next
 
-        if (grepl("move to next layer",data[x])) {
+	if (grepl("move to next layer",data[x])) {
             if (currLayer > -1) {
                 print(paste("Layer",currLayer,"max X",maxx, "min X", minx,"Max Y", maxx, "Min Y",miny))
             }
@@ -79,11 +85,11 @@ for(x in 1 : length(listcfgs)) {
             htNew = as.numeric(htNew)
         }
 
+
         if (grepl("G28",data[x]) || grepl("G21",data[x]) || grepl("G90",data[x])) {
             if (initConfig == 0)
                 next
         }
-
         if (grepl("; retract extruder", data[x])) {
             distmoved = unlist(strsplit(data[x]," "))
             distmoved = distmoved[2]
@@ -91,6 +97,7 @@ for(x in 1 : length(listcfgs)) {
             totDistMoved = totDistMoved + as.numeric(distmoved)
             activeSearch = 1
         }
+
 
         if (grepl("G1 X",data[x])) {
             tmpmin = unlist(strsplit(data[x]," "))
@@ -129,11 +136,13 @@ for(x in 1 : length(listcfgs)) {
             doExtr = 1
         }
 
+
         if (grepl("unretract extruder 0",data[x]) && addExtruderInit) {
             tempStr = paste("M83;\nG01 E",initialEDpt-5,";\nG01 E",initialEDpt," F50;\nG92 E0;\n",sep="")
             newStr = paste(newStr,tempStr,sep="\n")
             addExtruderInit = 0;
-        }
+	}
+	
 
         temp = unlist(strsplit(data[x],";"))
 
@@ -168,10 +177,9 @@ for(x in 1 : length(listcfgs)) {
         endStr2 = paste(endStr2, endStr,sep="\n")
     } else {
         endStr2 = paste(endStr2, dropGCode,sep="\n")
-        endStr2 = paste(endStr2, pickGCode,sep="\n")
+        #endStr2 = paste(endStr2, pickGCode,sep="\n")
     }
     }
-
     endStr = endStr2
     newStr = paste(newStr, endStr,sep="\n")
     write(newStr, file = pathOut)

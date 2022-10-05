@@ -16,7 +16,7 @@ csv_file = 'ToolPostCoords'
 # sheet_id = get_spreadsheet_id(drive, sheet_name)
 # download_sheet(sheets, sheet_id, sheet_name)
 
-with open('ToolPostCoords.csv', newline='') as csvfile:
+with open('toolchange/gcode_script/ToolPostCoords.csv', newline='') as csvfile:
     coordreader = csv.reader(csvfile, delimiter=',', quotechar='|')
     for row in coordreader:
         if row[0].isdigit():
@@ -29,14 +29,15 @@ with open('ToolPostCoords.csv', newline='') as csvfile:
             SPEEDDROPOFF = row[10:19]
 
 #Default values
-folderName = "../generatedTCgcode"
+folderName = "toolchange/generatedTCgcode"
 
 print("Generating from ToolPostCoords.csv")
 
 for i in range(len(PICKUP)):
  
  #Pickup tool
- f = open(folderName + "/tool_pick_" + str(i+1) + ".gcode", "w")
+ f = open(folderName + "/tool_pick_" + str(i+1) + ".gcode", 'w+')
+ 
  # Retract U axis
  f.write("G28 U0 F1000;\n")
  f.write("G01 X"+str(PICKUP[i][1])+ " Y"+str(PICKUP[i][2])+ " Z"+str(PICKUP[i][0])+" F"+str(SPEEDPICKUP[0])+"; insert comment\n")
@@ -48,8 +49,9 @@ for i in range(len(PICKUP)):
 
 
  #Dropoff Tool
- f = open(folderName + "/tool_drop_" + str(i+1) + ".gcode", "w")
+ f = open(folderName + "/tool_drop_" + str(i+1) + ".gcode", 'w+')
  # Retract U axis
+ 
  f.write("G28 U0 F1000;;\n")
  # G01 X1 Y1 Z1 F4000
  f.write("G01 X"+str(DROPOFF[i][1])+" Y"+str(DROPOFF[i][2])+" Z"+str(DROPOFF[i][0])+" F"+str(SPEEDDROPOFF[0])+"; get in front of proper tool post\n")
