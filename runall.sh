@@ -2,7 +2,7 @@
 
 mkdir gcode_clean gcode_unclean
 
-# wget "https://docs.google.com/spreadsheets/d/1mdmZlsQ2iFxAYt3wSUQabdSp760PFqEHBcyFQq9FNMA/export?format=csv&gid=<sheet_id>" -O "toolchange/gcode_script/ToolPostCoords.csv"
+wget "https://docs.google.com/spreadsheets/d/e/2PACX-1vSQij_JvQW-AUf4f17Ghu8s1TzRTdiNa3kdgbo23G5wXQKNIqJRc1vZlDaD_OopxKCBHh0wOYqCYEHY/pub?output=csv" -O "toolchange/gcode_script/ToolPostCoords.csv"
 
 python3 toolchange/gcode_script/generate_toolchange.py 
 
