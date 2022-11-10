@@ -49,23 +49,27 @@ def get_extruder_depth(gcode):
 
 
 def write_config(configs, i):
-	f_name_prefix = configs[i][0].split('.')[0]
-	f = open("./configs/" + f_name_prefix + '.txt', "w+")
-	f.write('./gcode_unclean/'+f_name_prefix+'.gcode\n')
-	f.write('./gcode_clean/'+f_name_prefix+'.gcode\n')
-	f.write(str(len(configs)) + '\n')
-	if i == len(configs)-1:
-		f.write('0\n')
-	else:
-		f.write('1\n')
-	f.write(configs[i][3] + '\n')
-	f.write(configs[i][1] + '\n')
-	if i == len(configs)-1:
-		f.write(configs[i][1] + '\n')
-	else:
-		f.write(configs[i+1][1] + '\n')
-	f.write('0\n')
-	f.close()
+    f_name_prefix = configs[i][0].split('.')[0]
+    f = open("./configs/" + f_name_prefix + '.txt', "w+")
+    f.write('./gcode_unclean/'+f_name_prefix+'.gcode\n')
+    f.write('./gcode_clean/'+f_name_prefix+'.gcode\n')
+    f.write(str(len(configs)) + '\n')
+    if i == len(configs)-1:
+	    f.write('0\n')
+    else:
+	    f.write('1\n')
+    f.write(configs[i][3] + '\n')
+    f.write(configs[i][1] + '\n')
+    f.write(configs[i][1] + '\n')
+    print("TOOL POST", configs[i][1])
+    '''
+    if i == len(configs)-1:
+	    f.write(configs[i][1] + '\n')
+    else:
+        f.write(configs[i+1][1] + '\n')
+    '''
+    f.write('0\n')
+    f.close()
 
 
 def fix_depths(configs):
@@ -95,9 +99,10 @@ def layer_config_regex(search):
 
 
 def init():
-	f = open("./repo/config.txt", "r")
-	layers = [line.rstrip() for line in f if layer_config_regex(line)]
-	configs = [[part.rstrip().upper() for part in layer.split(',')] for layer in layers]
-	fix_depths(configs)
+    print("PREFIX.PY")
+    f = open("./repo/config.txt", "r")
+    layers = [line.rstrip() for line in f if layer_config_regex(line)]
+    configs = [[part.rstrip().upper() for part in layer.split(',')] for layer in layers]
+    fix_depths(configs)
 
 init()
