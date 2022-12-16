@@ -2,7 +2,7 @@
 ./gcode_clean/18.gcode
 18
 0
-50
+8
 18
 18
 0

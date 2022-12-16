@@ -52,8 +52,8 @@ for i in range(len(PICKUP)):
  f = open(folderName + "/tool_drop_" + str(i+1) + ".gcode", 'w+')
  # Retract U axis
  
- f.write("G28 U0 F1000;;\n")
- f.write("Z"+str(DROPOFF[i][0])")
+ f.write("G28 U0 F1000;\n")
+ f.write("G01 Z"+str(DROPOFF[i][0])+";\n")
  # G01 X1 Y1 Z1 F4000
  f.write("G01 X"+str(DROPOFF[i][1])+" Y"+str(DROPOFF[i][2])+" F"+str(SPEEDDROPOFF[0])+"; get in front of proper tool post\n")
  # G01 Y2 F500

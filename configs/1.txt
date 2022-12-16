@@ -2,7 +2,7 @@
 ./gcode_clean/1.gcode
 18
 1
-6
+8
 1
 1
 0

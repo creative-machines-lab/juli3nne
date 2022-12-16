@@ -1,5 +1,6 @@
-G28 U0 F1000;;
-G01 X368 Y15 Z160 F1500; get in front of proper tool post
+G28 U0 F1000;
+G01 Z160;
+G01 X368 Y15 F1500; get in front of proper tool post
 G01 Y13 Z159 F500; dropping tool 9 
 G01 Y10 Z157.5 F500; insert comment
 G01 Y9 Z143.5 F500; insert comment

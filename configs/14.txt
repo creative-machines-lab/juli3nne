@@ -2,7 +2,7 @@
 ./gcode_clean/14.gcode
 18
 1
-42
+9
 14
 14
 0
