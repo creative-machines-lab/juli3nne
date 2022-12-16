@@ -1,0 +1,8 @@
+./gcode_unclean/13.gcode
+./gcode_clean/13.gcode
+18
+1
+37
+13
+13
+0

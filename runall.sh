@@ -25,5 +25,5 @@ sed 's/E/U/g' gcode_clean/combined.gcode > combined.gcode
 
 rm GCode_clean_temp.R
 rm concat.sh
-rm -r gcode_clean gcode_unclean
+#rm -r gcode_clean gcode_unclean
 rm slic3r_script.sh

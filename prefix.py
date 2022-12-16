@@ -84,8 +84,8 @@ def fix_depths(configs):
 			depth_map[tool] = float(initial_depth)
 		else:
 			configs[i][3] = str(depth_map[tool])
-			print('Updating config corresponding to file: ' + str(config[0]))
-			write_config(configs, i)
+		print('Updating config corresponding to file: ' + str(config[0]))
+		write_config(configs, i)
 		gcode = open(UNCLEAR_DIR + file_initial + '.gcode', "r")
 		depth = get_extruder_depth(gcode)
 		depth_map[tool] = depth_map[tool] + depth
