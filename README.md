@@ -1,6 +1,6 @@
 # Juli3nne
 ## Overview
-Juli3nne is software for a project in Columbia University's Creative Machine Lab. The goal of the project is design a 3D printer capable of fabricating edible items through the computer-
+Juli3nne is software for a project in Columbia University's Creative Machines Lab. The goal of the project is design a 3D printer capable of fabricating edible items through the computer-
 guided deposition of ingredients. The machine prints edible objects using a process similar to dused deposition modeling (FDM) 3D printers. 
 
 The software element of this project facilitates the generation of GCode for the printer. This project utilizes open-source [slic3r](https://github.com/slic3r/Slic3r) software to generate GCode from a 3D model. Given a set of STL files and a configuration
@@ -13,13 +13,13 @@ software mechanism for preparing STL files for printing.
 ## Installation 
 1. Install the latest versions of python3 and pip3
 2. Install python dependencies \
-` pip3 install numpy-stl Flask`
+`pip3 install numpy-stl Flask`
 3. Install slic3r using these [instructions](https://github.com/slic3r/Slic3r#how-to-install) \
 Note: slice3r and juli3nne should be placed in the same directory
 ## Usage
 1. Start the GUI \
 `python3 server.py`
-2. Access the GUI through the browser and follow the instructions to slice STL files. 
+2. Access the GUI through the browser and follow the instructions to slice STL files
 
 ## Software Details
 ### Generating GCode
