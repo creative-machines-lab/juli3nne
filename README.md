@@ -1,7 +1,7 @@
 # Juli3nne
 ## Overview
 Juli3nne is software for a project in Columbia University's Creative Machines Lab. The goal of the project is design a 3D printer capable of fabricating edible items through the computer-
-guided deposition of ingredients. The machine prints edible objects using a process similar to dused deposition modeling (FDM) 3D printers. 
+guided deposition of ingredients. The machine prints edible objects using a process similar to fused deposition modeling (FDM) 3D printers. 
 
 The software element of this project facilitates the generation of GCode for the printer. This project utilizes open-source [slic3r](https://github.com/slic3r/Slic3r) software to generate GCode from a 3D model. Given a set of STL files and a configuration
 file, our software generates a combined GCode file for the machine to print.
