@@ -15,7 +15,7 @@ software mechanism for preparing STL files for printing.
 2. Install python dependencies \
 `pip3 install numpy-stl Flask`
 3. Install slic3r using these [instructions](https://github.com/slic3r/Slic3r#how-to-install) \
-Note: slice3r and juli3nne should be placed in the same directory
+Note: slice3r and juli3nne should be placed in the same directory \
 `git clone https://github.com/creative-machines-lab/juli3nne`
 ## Usage
 1. Start the GUI \
